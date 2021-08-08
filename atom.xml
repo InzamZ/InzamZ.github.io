@@ -6,7 +6,7 @@
   <link href="http://www.inzamz.top/atom.xml" rel="self"/>
   
   <link href="http://www.inzamz.top/"/>
-  <updated>2021-07-16T16:36:33.000Z</updated>
+  <updated>2021-08-08T06:48:56.000Z</updated>
   <id>http://www.inzamz.top/</id>
   
   <author>
@@ -17,6 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>网络课程简介 第六章 数据链路</title>
+    <link href="http://www.inzamz.top/2021/Notes/IntroductionToNetwork/ITNCh6/"/>
+    <id>http://www.inzamz.top/2021/Notes/IntroductionToNetwork/ITNCh6/</id>
+    <published>2021-08-08T06:48:56.000Z</published>
+    <updated>2021-08-08T06:48:56.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;ICPC校队选拔没选上 , 我是菜狗 . 开始卷网络了 .&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="http://www.inzamz.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="网络" scheme="http://www.inzamz.top/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>无悔的抉择--记AFO</title>
+    <link href="http://www.inzamz.top/2021/ICPC/AFO/"/>
+    <id>http://www.inzamz.top/2021/ICPC/AFO/</id>
+    <published>2021-08-05T14:07:36.000Z</published>
+    <updated>2021-08-05T14:07:36.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;我点开了那份选拔名单 , 扫了一眼没发现 , 又仿佛不相信自己的眼睛 , 每一行看了一遍 , 没有我的名字 . 但我的内心并没有波动 , 就是空空的 , 有点迷茫又不知所措的呆滞 . 跟我那天看到高考成绩一模一样 .&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="ICPC" scheme="http://www.inzamz.top/categories/ICPC/"/>
+    
+    
+    <category term="杂谈" scheme="http://www.inzamz.top/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
     <title>UESTC 2021 Summer Training 04 Div.2</title>
     <link href="http://www.inzamz.top/2021/ICPC/Contests/UESTC%202021%20Summer%20Training%20Div2/Round04/"/>
     <id>http://www.inzamz.top/2021/ICPC/Contests/UESTC%202021%20Summer%20Training%20Div2/Round04/</id>
@@ -25,9 +63,9 @@
     
     
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;差强人意吧 . 不足就是前面几道签到题还是有点慢 , 可能是昨天爆零的后遗症吧 , 好在很多都是一遍过 , 甚至拿了C题的一血 . 最后的B没有写出来 , 说起来思路都是错的 . &lt;/p&gt;
-&lt;p&gt;单场rank 5 (-37) &lt;/p&gt;
-&lt;p&gt;总rank 16 (-11) &lt;/p&gt;
+&lt;p&gt;差强人意吧 . 不足就是前面几道签到题还是有点慢 , 可能是昨天爆零的后遗症吧 , 好在很多都是一遍过 , 甚至拿了C题的一血 . 最后的B没有写出来 , 说起来思路都是错的 .&lt;/p&gt;
+&lt;p&gt;单场rank 5 (-37)&lt;/p&gt;
+&lt;p&gt;总rank 16 (-11)&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
@@ -93,7 +131,7 @@
     <category term="学习笔记" scheme="http://www.inzamz.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="网路" scheme="http://www.inzamz.top/tags/%E7%BD%91%E8%B7%AF/"/>
+    <category term="网络" scheme="http://www.inzamz.top/tags/%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -131,7 +169,7 @@
     
     
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;系统地学习一下思科网课中的网络课程 , 笔记记录一下 . &lt;/p&gt;
+&lt;p&gt;系统地学习一下思科网课中的网络课程 , 笔记记录一下 .&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
@@ -152,8 +190,8 @@
     
     
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;这一篇不可能缺席的 . 巨人是多少人的青春 , 对于他的结局 , 总的来说是烂的 , 但至少是圆满的 . 对于我 , 很晚入宅 , 但是不可否定的是我也为了他疯过 . 我看了很多结局的解读 , 找了自己能接受的 , 但当作者需要其他人解读时 , 作品已经算失败了……&lt;/p&gt;
-&lt;p&gt;在最后 , 我还是抱着一丝丝希望 , MAPPA能最后把结局改了 , 还给我们一个完美的青春 . &lt;/p&gt;
+&lt;p&gt;这一篇不可能缺席的 . 巨人是多少人的青春 , 对于他的结局 , 总的来说是烂的 , 但至少是圆满的 . 对于我 , 很晚入宅 , 但是不可否定的是我也为了他疯过 . 我看了很多结局的解读 , 找了自己能接受的 , 但当作者需要其他人解读时 , 作品已经算失败了......&lt;/p&gt;
+&lt;p&gt;在最后 , 我还是抱着一丝丝希望 , MAPPA能最后把结局改了 , 还给我们一个完美的青春 .&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
@@ -173,7 +211,7 @@
     <updated>2021-06-27T15:51:53.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;男女主的感情表达得很好 , 世界观一般 , 剧情很可以 . 总体来说还是很可以的 . 按照我毒瘤的评分标准 , 7.5 分吧 . 和室友包场了 , 可悲的是 , 其他两对都是情侣 . &lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;男女主的感情表达得很好 , 世界观一般 , 剧情很可以 . 总体来说还是很可以的 . 按照我毒瘤的评分标准 , 7.5 分吧 . 和室友包场了 , 可悲的是 , 其他两对都是情侣 .&lt;/p&gt;</summary>
     
     
     
@@ -193,7 +231,7 @@
     
     
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;板子题并没有给出详细的讲解 , 讲了大致思路 , 以及对于某些细节上的处理 . 代码也是把板子部分去了 , 留下需要改的部分 . &lt;/p&gt;
+&lt;p&gt;板子题并没有给出详细的讲解 , 讲了大致思路 , 以及对于某些细节上的处理 . 代码也是把板子部分去了 , 留下需要改的部分 .&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
@@ -283,7 +321,7 @@
     
     
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;在高中只学过简单的背包问题，会写简单的状态转移方程。就自以为差不多（实际上就是在逃避现实），而最近刷了 ABC190 后，写了一道状压DP，才发现是时候练一下了。选择题目很杂 , 有些是学校的题目 , 没有题面 . 毕竟也没有人会看的吧 . &lt;/p&gt;
+&lt;p&gt;在高中只学过简单的背包问题，会写简单的状态转移方程。就自以为差不多（实际上就是在逃避现实），而最近刷了 ABC190 后，写了一道状压DP，才发现是时候练一下了。选择题目很杂 , 有些是学校的题目 , 没有题面 . 毕竟也没有人会看的吧 .&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;UPST2020&lt;/code&gt; : UESTC PreSummer Training 2020&lt;/li&gt;
 &lt;/ul&gt;
@@ -371,7 +409,7 @@
     <updated>2021-01-24T09:08:32.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;因为自己一直苦于水课以及其他的正课的复习，师兄的建议也只是停留在印象（毕竟时间太久都忘了），于是我打算考完后把感想写下来，造福后代？&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;因为自己一直苦于水课以及其他的正课的复习，师兄的建议也只是停留在印象（毕竟时间太久都忘了），于是我打算考完后把感想写下来，造福后代？</summary>
     
     
     
@@ -390,7 +428,7 @@
     <updated>2021-01-25T08:06:59.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;其实有时间打的，不过我懒，所以赛后打的。&lt;br&gt;        ABC的难度就是前几题暴力，后面还是挺有挑战性的，下次有机会一定打。而且时间太舒服了，晚上8点。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;其实有时间打的，不过我懒，所以赛后打的。 ABC的难度就是前几题暴力，后面还是挺有挑战性的，下次有机会一定打。而且时间太舒服了，晚上8点。&lt;/p&gt;</summary>
     
     
     
@@ -441,11 +479,13 @@
     
     
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;至于真相，一定更在意料之外——自古皆然。  阿瑟·克拉克 《太空漫游：2001》&lt;/p&gt;
+&lt;p&gt;至于真相，一定更在意料之外——自古皆然。 阿瑟·克拉克 《太空漫游：2001》&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;这一年确实经历了很多，感慨万千。就像上面这句话，然后先挖个坑，会填的。&lt;/p&gt;
 &lt;p&gt;毕竟作为中国人，真正的过年就是除夕夜嘛。所以总结放在除夕夜了。而且我有一个大胆的想法，今年试试守岁？&lt;del&gt;感觉可以。&lt;/del&gt; 因为不可抗力的因素，我怕守个岁这个年估计就要躺在床上了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://img.inzamz.top/expression/stop-abusing.jpg&quot; alt=&quot;stop-abusing&quot;&gt;&lt;/p&gt;</summary>
+&lt;figure&gt;
+&lt;img src=&quot;https://img.inzamz.top/expression/stop-abusing.jpg&quot; alt=&quot;stop-abusing&quot; /&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;stop-abusing&lt;/figcaption&gt;
+&lt;/figure&gt;</summary>
     
     
     
@@ -453,44 +493,6 @@
     
     
     <category term="2020" scheme="http://www.inzamz.top/tags/2020/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BaiduUrls</title>
-    <link href="http://www.inzamz.top/2020/Tools/BaiduUrls/"/>
-    <id>http://www.inzamz.top/2020/Tools/BaiduUrls/</id>
-    <published>2020-12-23T15:07:51.000Z</published>
-    <updated>2021-06-26T15:37:38.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;基于 hexo 的博客比较麻烦 , 百度无法自动收录 , 所以需要自己操作 . 记录一下到时方便查阅 , 参考自博文 &lt;a href=&quot;https://blog.csdn.net/weixin_43662543/article/details/104647173&quot;&gt;https://blog.csdn.net/weixin_43662543/article/details/104647173&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="博客相关" scheme="http://www.inzamz.top/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="博客" scheme="http://www.inzamz.top/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>缺失的数字</title>
-    <link href="http://www.inzamz.top/2020/Talks/lackingnumber/"/>
-    <id>http://www.inzamz.top/2020/Talks/lackingnumber/</id>
-    <published>2020-12-23T14:38:11.000Z</published>
-    <updated>2021-06-26T15:40:30.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;我在查找费马小定理的资料时 , 发现了这篇文章 . 我觉得很有趣 , 就学习一下 .&lt;br&gt;转载参考自 &lt;a href=&quot;https://www.cnblogs.com/tupx/archive/2012/04/29/2476000.html&quot;&gt;https://www.cnblogs.com/tupx/archive/2012/04/29/2476000.html&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="无聊的小分享" scheme="http://www.inzamz.top/categories/%E6%97%A0%E8%81%8A%E7%9A%84%E5%B0%8F%E5%88%86%E4%BA%AB/"/>
-    
-    
-    <category term="数学" scheme="http://www.inzamz.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   

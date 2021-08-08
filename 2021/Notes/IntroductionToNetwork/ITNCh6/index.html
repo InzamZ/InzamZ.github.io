@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#5C698D"><meta name="author" content="Inzam"><meta name="copyright" content="Inzam"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>网络课程简介 第六章 数据链路 | InzamZ的小破站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.25/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link class="aplayer-style-marker" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script class="aplayer-script-marker" src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" defer></script><script class="meting-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js" defer></script><script src="/js/pjax.js" defer></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#5C698D"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"www.inzamz.top","root":"/","title":["I","n","z","a","m","の","小","站"],"version":"1.6.1","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn/?c=a&c=b&c=c&c=d&c=k&encode=json","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="InzamZ的小破站" type="application/atom+xml"><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><meta name="description" content="ICPC校队选拔没选上 , 我是菜狗 . 开始卷网络了 .">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络课程简介 第六章 数据链路">
+<meta property="og:url" content="http://www.inzamz.top/2021/Notes/IntroductionToNetwork/ITNCh6/index.html">
+<meta property="og:site_name" content="InzamZ的小破站">
+<meta property="og:description" content="ICPC校队选拔没选上 , 我是菜狗 . 开始卷网络了 .">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.inzamz.top/article/ITNNote/IEEE802.png">
+<meta property="og:image" content="https://img.inzamz.top/article/ITNNote/Data-link-layerStandard.png">
+<meta property="og:image" content="https://img.inzamz.top/article/ITNNote/WANTopo.png">
+<meta property="og:image" content="https://img.inzamz.top/article/ITNNote/WANTopo-2.png">
+<meta property="og:image" content="https://img.inzamz.top/article/ITNNote/LANTopo.png">
+<meta property="og:image" content="https://img.inzamz.top/article/ITNNote/FrameField.png">
+<meta property="article:published_time" content="2021-08-08T06:48:56.000Z">
+<meta property="article:modified_time" content="2021-08-08T06:48:56.000Z">
+<meta property="article:author" content="Inzam">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.inzamz.top/article/ITNNote/IEEE802.png"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info mickey-mouse"><a class="site-author-avatar" href="/about/" title="Inzam"><img width="96" loading="lazy" src="/images/liwei.jpg" alt="Inzam"><span class="site-author-status" title="默哀">😯</span></a><div class="site-author-name"><a href="/about/">Inzam</a></div><a class="site-name" href="/about/site.html">InzamZ的小破站</a><sub class="site-subtitle">胆大飘洋过海,胆小寸步难行</sub><div class="site-desciption">一个自言自语的地方</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">44</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">15</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">53</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comment" title="留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-clipboard-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/InzamZ" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:me@inzamz.top" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://weibo.com/u/7529779251?is_all=1" title="微博" target="_blank" style="color:#E6162D"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-weibo-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=1525382286" title="网易云音乐" target="_blank" style="color:#C10D0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/ge-zhe-79-3" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/259102692" title="哔哩哔哩动画" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.popiapp.cn/TnolgX" title="POPI" target="_blank" style="color:#525252"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-questionnaire-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://t.me/InzamZ" title="Telegram" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-telegram-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.douban.com/people/inzamz/" title="豆瓣" target="_blank" style="color:#007722"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-douban-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a><a class="links-item hty-icon-button" href="/girls/" title="喜欢的女孩子" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a><a class="links-item hty-icon-button" href="/albums/" title="相册" style="color:gray"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-gallery-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E7%9A%84%E7%94%A8%E9%80%94"><span class="toc-number">1.</span> <span class="toc-text">数据链路的用途</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">1.1.</span> <span class="toc-text">数据链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ieee-802lanman-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%AD%90%E5%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">IEEE 802LAN&#x2F;MAN 数据链路子层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BE%9B%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE"><span class="toc-number">1.3.</span> <span class="toc-text">提供介质访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E6%A0%87%E5%87%86"><span class="toc-number">1.4.</span> <span class="toc-text">数据链路层标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%A0%E9%A2%98"><span class="toc-number">1.5.</span> <span class="toc-text">习题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%93%E6%89%91"><span class="toc-number">2.</span> <span class="toc-text">拓扑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%92%8C%E9%80%BB%E8%BE%91%E6%8B%93%E6%89%91"><span class="toc-number">2.1.</span> <span class="toc-text">物理和逻辑拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wan%E6%8B%93%E6%89%91"><span class="toc-number">2.2.</span> <span class="toc-text">WAN拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%AF%B9%E7%82%B9-wan-%E6%8B%93%E6%89%91"><span class="toc-number">2.3.</span> <span class="toc-text">点对点 WAN 拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lan%E6%8B%93%E6%89%91"><span class="toc-number">2.4.</span> <span class="toc-text">LAN拓扑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9Flan%E6%8B%93%E6%89%91"><span class="toc-number">2.4.1.</span> <span class="toc-text">传统LAN拓扑</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8A%E5%8F%8C%E5%B7%A5%E5%92%8C%E5%85%A8%E5%8F%8C%E5%B7%A5%E9%80%9A%E4%BF%A1"><span class="toc-number">2.5.</span> <span class="toc-text">半双工和全双工通信</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8A%E5%8F%8C%E5%B7%A5%E9%80%9A%E4%BF%A1"><span class="toc-number">2.5.1.</span> <span class="toc-text">半双工通信</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%8F%8C%E5%B7%A5%E9%80%9A%E4%BF%A1"><span class="toc-number">2.5.2.</span> <span class="toc-text">全双工通信</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="toc-number">2.6.</span> <span class="toc-text">访问控制方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%AB%9E%E4%BA%89%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="toc-number">2.6.1.</span> <span class="toc-text">基于竞争的访问</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%97%E6%8E%A7%E8%AE%BF%E9%97%AE"><span class="toc-number">2.6.2.</span> <span class="toc-text">受控访问</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%AB%9E%E4%BA%89%E7%9A%84%E8%AE%BF%E9%97%AE---csmacd"><span class="toc-number">2.7.</span> <span class="toc-text">基于竞争的访问 - CSMA&#x2F;CD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%AB%9E%E4%BA%89%E7%9A%84%E8%AE%BF%E9%97%AE-csmaca"><span class="toc-number">2.8.</span> <span class="toc-text">基于竞争的访问 – CSMA&#x2F;CA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B8%A7"><span class="toc-number">3.</span> <span class="toc-text">数据链路帧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A7%E5%AD%97%E6%AE%B5"><span class="toc-number">3.1.</span> <span class="toc-text">帧字段</span></a></li></ol></li></ol></div></div></div><div class="tag-cloud"><div class="tag-cloud-tags"><a href="/tags/2020/" style="font-size: 12px; color: #91c8e9">2020</a> <a href="/tags/BFS/" style="font-size: 12px; color: #91c8e9">BFS</a> <a href="/tags/BM/" style="font-size: 12px; color: #91c8e9">BM</a> <a href="/tags/BST/" style="font-size: 12px; color: #91c8e9">BST</a> <a href="/tags/GCD/" style="font-size: 12px; color: #91c8e9">GCD</a></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://www.inzamz.top/2021/Notes/IntroductionToNetwork/ITNCh6/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Inzam"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="InzamZ的小破站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">网络课程简介 第六章 数据链路</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <span class="post-meta-icon-text">发表于</span> <time title="创建时间：2021-08-08 14:48:56" itemprop="dateCreated datePublished" datetime="2021-08-08T14:48:56+08:00">2021-08-08</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="本文字数">3.6k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="阅读时长">12m</span></span></span><span class="leancloud_visitors" id="/2021/Notes/IntroductionToNetwork/ITNCh6/" data-flag-title="网络课程简介 第六章 数据链路"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读次数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg> <span class="leancloud-visitors-count"></span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">学习笔记</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E7%BD%91%E7%BB%9C/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">网络</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#5C698D;"><p>ICPC校队选拔没选上 , 我是菜狗 . 开始卷网络了 .</p>
+<span id="more"></span>
+<hr />
+<h2 id="数据链路的用途">数据链路的用途</h2>
+<h3 id="数据链路层">数据链路层</h3>
+<p>OSI模型的数据链路层(第2层)为物理网络准备网络数据。数据链路层负责网络接口卡 (NIC) 到网络接口卡的通信。</p>
+<p>数据链路层执行以下操作 : - 允许上层访问介质。上层协议完全不知道用于转发数据的介质类型。 - 接受数据，通常是第 3 层数据包（即 IPv4 或 IPv6），并将它们封装到第 2 层帧中。 - 控制数据在介质上的放置和接收方式，通过网络介质在终端之间交换帧。 - 接收封装的数据，通常是第 3 层数据包，并将它们定向到适当的上层协议。 - 执行错误检测并拒绝任何损坏的帧。</p>
+<p><code>节点</code> : 节点是可以沿通信路径接收、创建、存储或转发数据的设备。可以是笔记本电脑或移动电话等终端设备，也可以是中间设备如以太网交换机。</p>
+<p>如果没有数据链路层，则网络层协议（如 IP）必须提供连接到传输路径中可能存在的各种类型介质所需的连接。此外，每当开发出一种新的网络技术或介质时，IP 必须做出相应调整。</p>
+<h3 id="ieee-802lanman-数据链路子层">IEEE 802LAN/MAN 数据链路子层</h3>
+<p>IEEE 802 LAN/MAN 标准专用于<strong>以太网局域网、无线局域网 (WLAN)、无线个人区域网 (WPAN) 和其他类型的局域网和城域网。</strong>由以下两个子层组成：</p>
+<ul>
+<li><p><strong>逻辑链路控制 (LLC)</strong> - 这个子层在上层的网络软件与下层的设备硬件之间进行通信。它放入帧中的信息<strong>用于确定帧所使用的网络层协议。</strong>此信息允许多个第 3 层协议（如 IPv4 和 IPv6）使用相同的网络接口和介质。</p></li>
+<li><p><strong>介质访问控制 (MAC)</strong> - 在硬件上实现这个子层（IEEE 802.3、802.11 或 802.15）。它负责<strong>数据封装和介质访问控制</strong>。它提供数据链路层寻址，并与各种物理层技术集成。<strong>数据封装</strong> :</p>
+<ul>
+<li><strong>帧定界</strong> - 在成帧过程中提供重要的定界符，用来标识帧中的字段。这些<strong>定界符位</strong>可以在发送节点与接收节点之间提供同步。</li>
+<li><strong>编址</strong> - 提供源和目的编址，用于在同一共享介质上的设备之间传输第 2 层帧。</li>
+<li><strong>错误检测</strong> - 包含一个帧尾，用于检测传输错误。</li>
+</ul>
+<p>MAC 子层还提供介质访问控制，允许多个设备通过共享（半双工）介质进行通信。<strong>全双工通信不需要访问控制</strong>。</p></li>
+</ul>
+<figure>
+<img src="https://img.inzamz.top/article/ITNNote/IEEE802.png" alt="IEEE802" / loading="lazy"><figcaption aria-hidden="true">IEEE802</figcaption>
+</figure>
+<h3 id="提供介质访问">提供介质访问</h3>
+<p>在数据包从本地主机传送到远程主机的过程中，其遇到的各种网络环境可能具有不同的特性。例如，以太网 LAN 通常由许多争用网络介质访问的主机组成。MAC 子层解决了这个问题。对于串行链路，访问方法可能只包括两个设备之间的直接连接，通常是两个路由器。因此，它们不需要 IEEE 802 MAC 子层所使用的技术。</p>
+<p>路由器接口将数据包封装到适当的帧中。使用合适的介质访问控制方法来访问每个链路。在任意指定的网络层数据包交换过程中，可能存在多次数据链路层和介质的转换。在路径上的每一跳，路由器都执行以下第 2 层功能：</p>
+<ul>
+<li>从介质接受帧</li>
+<li>解封帧</li>
+<li>将数据包重新封装到新帧中</li>
+<li>从适合该物理网络网段的介质转发新帧</li>
+</ul>
+<h3 id="数据链路层标准">数据链路层标准</h3>
+<p>定义适用于网络接入层（即，OSI的物理和数据链路层）的开放标准和协议的工程组织包括：</p>
+<ul>
+<li>电气电子工程师协会 (IEEE)</li>
+<li>国际电信联盟 (ITU)</li>
+<li>国际标准化组织 (ISO)</li>
+<li>美国国家标准学会 (ANSI)</li>
+</ul>
+<figure>
+<img src="https://img.inzamz.top/article/ITNNote/Data-link-layerStandard.png" alt="Data-link-layerStandard" / loading="lazy"><figcaption aria-hidden="true">Data-link-layerStandard</figcaption>
+</figure>
+<h3 id="习题">习题</h3>
+<blockquote>
+<p>介质访问控制方法取决于哪两个条件？</p>
+</blockquote>
+<div class="danger">
+<blockquote>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+第 3 层IP协议</li>
+<li><input type="checkbox" disabled="" checked="" />
+介质共享</li>
+<li><input type="checkbox" disabled="" />
+拓扑结构</li>
+<li><input type="checkbox" disabled="" checked="" />
+传输层协议</li>
+<li><input type="checkbox" disabled="" />
+数据类型</li>
+</ul>
+</blockquote>
+</div>
+<div class="success">
+<blockquote>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+第 3 层IP协议</li>
+<li><input type="checkbox" disabled="" checked="" />
+介质共享</li>
+<li><input type="checkbox" disabled="" checked="" />
+拓扑结构</li>
+<li><input type="checkbox" disabled="" />
+传输层协议</li>
+<li><input type="checkbox" disabled="" />
+数据类型</li>
+</ul>
+</blockquote>
+</div>
+<h2 id="拓扑">拓扑</h2>
+<h3 id="物理和逻辑拓扑">物理和逻辑拓扑</h3>
+<p>网络拓扑是指网络设备及它们之间的互连布局或关系。描述 LAN 和 WAN 网络时使用两种类型的拓扑：</p>
+<ul>
+<li><strong>物理拓扑</strong> - 标识物理连接，以及终端设备和中间设备（即，路由器、交换机和无线接入点）如何互连。这个拓扑还可能包括特定的设备位置，如房间号和设备机架上的位置。物理拓扑通常是点对点拓扑或星型拓扑。</li>
+<li><strong>逻辑拓扑</strong> - 是指网络将帧从一个节点传输到另一节点的方法。此拓扑使用设备接口和第 3 层 IP 寻址方案识别虚拟连接。</li>
+</ul>
+<h3 id="wan拓扑">WAN拓扑</h3>
+<p>三种常见的物理WAN拓扑来互连WAN :</p>
+<ul>
+<li>点对点 : 这是最简单和最常见的 WAN 拓扑。它由两个终端之间的永久链接组成。</li>
+<li>中心辐射型 : 这是星型拓扑的 WAN 版本，在该拓扑中一个中心站点使用点对点链路互连分支机构站点。如果不经过中心站点，分支站点就不能与其他分支站点交换数据。</li>
+<li><img src="https://img.inzamz.top/article/ITNNote/WANTopo.png" title="fig:" alt="WANTopo" / loading="lazy"></li>
+<li>网状 : 该拓扑可用性高，但要求每个终端系统都与其他各个系统互连。因此管理成本和物理成本都会非常高。每条链路实质上是另一节点的点对点链路。</li>
+</ul>
+<p>混合拓扑是任何拓扑的变体或组合。例如，部分网状就是一种混合拓扑，因为其中一些而并非所有的终端设备都是互连的。</p>
+<h3 id="点对点-wan-拓扑">点对点 WAN 拓扑</h3>
+<p>物理点对点拓扑直接连接两个节点。在这种布局中，两个节点无需与其他主机共享介质。此外，当使用串行通信协议，如点对点协议(PPP)时，节点无需判定收到的帧是指向它还是指向另一节点。因此，逻辑数据链路协议将非常简单，因为介质中的所有帧都只去往或来自这两个节点。节点将帧放置到一端的介质上，然后点对点线路另一端的节点从介质取走帧。</p>
+<p><strong>注意</strong>: 通过以太网进行的点对点连接需要设备确定传入帧是否发往此节点。</p>
+<p>使用多个中间设备，距离较远的源节点和目的节点彼此可以间接相连。但是，在网络中使用物理设备并不会影响逻辑拓扑，如图所示。在图中，添加中间物理连接不会改变逻辑拓扑。逻辑点对点连接相同。</p>
+<figure>
+<img src="https://img.inzamz.top/article/ITNNote/WANTopo-2.png" alt="WANTopo" / loading="lazy"><figcaption aria-hidden="true">WANTopo</figcaption>
+</figure>
+<h3 id="lan拓扑">LAN拓扑</h3>
+<figure>
+<img src="https://img.inzamz.top/article/ITNNote/LANTopo.png" alt="LANTopo" / loading="lazy"><figcaption aria-hidden="true">LANTopo</figcaption>
+</figure>
+<p>在多路访问局域网中，终端设备（即节点）使用星型或扩展星型拓扑相互连接，如图所示。在这种类型的拓扑中，终端设备连接到一个中央中间设备，在本例中是一个以太网交换机。扩展星型（<strong>扩展星型</strong>）通过连接多个以太网交换机来扩展此拓扑。星型和扩展星型拓扑安装简单、扩展性好（易于添加和删除终端设备），而且故障排除容易。早期的星型拓扑使用以太网集线器互连终端设备。</p>
+<h4 id="传统lan拓扑">传统LAN拓扑</h4>
+<p>早期的以太网和传统令牌环局域网技术包括另外两种拓扑结构:</p>
+<ul>
+<li><strong>总线</strong> - 所有终端系统都相互连接，并在两端以某种形式端接。终端设备互连时不需要基础设施设备（例如交换机）。传统的以太网络中会使用采用同轴电缆的总线拓扑，因为它价格低廉而且安装简易。</li>
+<li><strong>环</strong> - 终端系统与其各自的邻居相连，形成一个环状。与总线拓扑不同，环拓扑不需要端接。传统的光纤分布式数据接口 (FDDI) 和令牌环网络使用环拓扑。</li>
+</ul>
+<h3 id="半双工和全双工通信">半双工和全双工通信</h3>
+<p>理解双工通信在讨论局域网拓扑时非常重要，因为它指的是两个设备之间的数据传输方向。有两种常见的双工模式。半双工通信限制为每次在一个方向进行数据交换。全双工允许同时发送和接收数据。</p>
+<h4 id="半双工通信">半双工通信</h4>
+<p>两台设备都可以通过该介质发送和接收，<strong>但无法同时执行这两个操作</strong>。WLAN和带有以太网集线器的传统总线拓扑使用半双工模式。半双工每次只允许一台设备通过共享介质发送或接收。</p>
+<h4 id="全双工通信">全双工通信</h4>
+<p>两台设备都可以在共享介质上同时发送和接收。数据链路层假定介质随时可供两个节点实现传输。默认情况下，以太网交换机在全双工模式下运行，但是如果与以太网集线器等设备连接，它们则可以在半双工模式下运行。</p>
+<p>两个互连设备，比如一个主机网卡和以太网交换机上的一个接口，必须采用同一双工模式运行。否则，将会出现双工不匹配，导致链路效率低下和延时。</p>
+<h3 id="访问控制方法">访问控制方法</h3>
+<p>以太网 LAN 和 WLAN 都是多路访问网络的示例。多路访问网络是指可能有<strong>两个或多个终端设备同时试图访问网络</strong>的网络。</p>
+<p>某些多路访问网络需要使用规则来管理设备共享物理介质的方式。对于共享介质，有两种基本的访问控制方法：</p>
+<ul>
+<li>基于竞争的访问</li>
+<li>受控访问</li>
+</ul>
+<h4 id="基于竞争的访问">基于竞争的访问</h4>
+<p>在基于竞争的多路访问网络中，所有节点都工作在<strong>半双工方式</strong>，争夺介质的使用。然而，一次只有一台设备能够发送。因此，当多台设备同时传输时，会使用一个处理过程。基于竞争的访问方法示例如下：</p>
+<ul>
+<li>在<strong>传统总线拓扑以太网局域网</strong>上使用载波侦听多路访问/冲突检测(CSMA/CD)</li>
+<li>在<strong>无线局域网</strong>上使用载波侦听多路访问/冲突避免(CSMA/CA)</li>
+</ul>
+<h4 id="受控访问">受控访问</h4>
+<p>在基于控制的多路访问网络中，每个节点都有自己的时间来使用介质。这种确定性的传统网络类型效率很低，因为设备必须等到轮到自己才能访问介质。使用受控访问的多路访问网络的示例包括：</p>
+<ul>
+<li>传统令牌环</li>
+<li>传统ARCNET</li>
+</ul>
+<p><strong>注意</strong>: 如今，以太网网络以全双工方式运行，不需要访问方法。</p>
+<h3 id="基于竞争的访问---csmacd">基于竞争的访问 - CSMA/CD</h3>
+<p>如果两台设备同时传输，则会发生冲突。对于传统以太网局域网，两台设备将会检测到网络上的冲突。这就是 CSMA/CD 的冲突检测 (CD) 部分。网卡通过比较传输的数据与接收的数据，或通过识别介质中的信号振幅是否高于正常状况来实现。两台设备发送的数据会损坏且需重新发送。</p>
+<p>由于是半双工方式 , 发送前若有帧在发送 , 则必须等待 .</p>
+<h3 id="基于竞争的访问-csmaca">基于竞争的访问 – CSMA/CA</h3>
+<p>CMSA/CA 采用一种与 CSMA/CD 类似的方法来检测介质是否空闲。CMSA/CA 采用其他技术。在无线环境中，设备可能无法检测到冲突。CMSA/CA 不会检测冲突，但会通过在传输之前等待来尝试避免冲突。<strong>每台设备发送时都会包含传输所需的持续时间。</strong>所有其他无线设备都会收到此信息，知道介质将有多长时间不可用。</p>
+<p>如果主机 A 从接入点接收到一个无线帧，那么主机 B 和 C 也会看到该帧以及介质有多久不可用。</p>
+<h2 id="数据链路帧">数据链路帧</h2>
+<p>附加到帧的信息由正在使用的协议决定。数据链路层通过使用帧头和帧尾将其封装以创建帧，从而准备封装后的数据（通常是IPv4或IPv6数据包），以便在本地介质上进行传输。</p>
+<p><strong>数据链路协议负责同一网络中的网卡间通信。</strong>虽然有许多描述数据链路层帧的不同数据链路层协议，但每种帧均有三个基本组成部分：帧头 , 数据 , 帧尾 .</p>
+<p>与其他封装协议不同，数据链路层以帧尾的形式在帧的末尾附加信息。所有数据链路层协议均将数据封装于帧的数据字段内。但是，由于协议的不同，帧结构以及帧头和帧尾中包含的字段会存在差异。</p>
+<p>没有一种帧结构能满足通过所有类型介质的全部数据传输需求。根据环境的不同，帧中所需的控制信息量也相应变化，以匹配介质和逻辑拓扑的访问控制需求。例如，WLAN帧必须包含避免冲突的过程，因此与以太网帧相比需要额外的控制信息。</p>
+<p>在脆弱的环境下，需要更多控制才能确保送达。由于所需控制信息较多，因此帧头和帧尾字段都较大。</p>
+<h3 id="帧字段">帧字段</h3>
+<p>成帧技术将位流拆分成可破解的多个分组，且将控制信息作为不同字段值插入帧头和帧尾中。此格式使物理信号具备能被节点识别且可在目的地解码成数据包的一种结构。</p>
+<p>图中显示了通用帧字段。并非所有协议均包含全部此类字段。特定数据链路协议的标准定义了实际帧格式。</p>
+<figure>
+<img src="https://img.inzamz.top/article/ITNNote/FrameField.png" alt="FlameField" / loading="lazy"><figcaption aria-hidden="true">FlameField</figcaption>
+</figure>
+<p>To Be Continued.</p>
+<!-- Q.E.D. -->
+</div><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">I'm so cute. Please give me money.</div><div id="qr" style="display:none;"><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://p.130014.xyz/2020/12/03/1173CB0E-9A44-45A6-8991-515958F4ADBB.jpg"><img loading="lazy" src="https://p.130014.xyz/2020/12/03/1173CB0E-9A44-45A6-8991-515958F4ADBB.jpg" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-alipay-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://p.130014.xyz/2020/12/03/9AACAEEE-03D9-4794-BAC6-2EE2965384DF.jpg"><img loading="lazy" src="https://p.130014.xyz/2020/12/03/9AACAEEE-03D9-4794-BAC6-2EE2965384DF.jpg" alt="QQ 支付" title="QQ 支付"></a><div><span style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://p.130014.xyz/2020/12/03/25F401EB-6BED-4A00-BAD2-DF69A9011C8A.jpg"><img loading="lazy" src="https://p.130014.xyz/2020/12/03/25F401EB-6BED-4A00-BAD2-DF69A9011C8A.jpg" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-pay-line"></use></svg></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>Inzam</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="http://www.inzamz.top/2021/Notes/IntroductionToNetwork/ITNCh6/" title="网络课程简介 第六章 数据链路">http://www.inzamz.top/2021/Notes/IntroductionToNetwork/ITNCh6/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></section></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/ICPC/AFO/" rel="next" title="无悔的抉择--记AFO"><span class="post-nav-text">无悔的抉择--记AFO</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>要不要和我说些什么？</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/InzamZ/inzamz.github.io/issues?q=is:issue+网络课程简介 第六章 数据链路">GitHub Issues</a></div><div id="valine-container"></div><script>Yun.utils.getScript("https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js", () => {
+  const valineConfig = {"enable":true,"appId":"Llj1MKoKOybvfqLYNAlxUeUs-MdYXbMMI","appKey":"d1gysunv9oLlyLR06QjaIHgF","placeholder":"欢迎大家友好地发起评论和建议,本蒟蒻一定虚心学习","avatar":null,"pageSize":10,"visitor":true,"highlight":true,"recordIP":true,"enableQQ":true,"meta":["nick","mail","link"],"lang":"zh-cn","el":"#valine-container"}
+  valineConfig.path = "/2021/Notes/IntroductionToNetwork/ITNCh6/"
+  new Valine(valineConfig)
+}, window.Valine);</script></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2021032030号</a></div><div class="copyright"><span>&copy; 2020 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> Inzam</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v5.4.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.6.1</span></div><div class="live_time"><span>本博客已进行壁外调查</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2020-10-08T17:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div><div class="footer-custom-text"><a style="display:inline-block" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" title="又拍云"><img height="30" src="https://img.inzamz.top/links/upyun.png" alt="upyun"/></a></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#5C698D" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="搜索..." value=""></div><div id="local-search-result"></div></div><script>const date = new Date();
+const today = (date.getMonth() + 1) + "-" + date.getDate()
+const mourn_days = ["4-4","12-13"]
+if (mourn_days.includes(today)) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script><div class="aplayer no-destroy" id="aplayer" data-id="2322278166" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay data-theme="#5C698D" data-loop="all" data-order="random" data-preload="auto" data-volume="0.7" data-mutex data-lrctype="0" data-listmaxheight="340px" data-storagename="metingjs"></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/gh/InzamZ/inzamz.github.io@main/live2d-widget-model-kutori/kutori.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body></html>
